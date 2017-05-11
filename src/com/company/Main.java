@@ -65,9 +65,9 @@ public class Main {
             if(sc2.hasNextLine())
                 sc2.nextLine();
         }
-        Collections.sort(students); //sorts the people list by name alphabeticly with the Comparable implememtation
+        Collections.sort(students); //sorts the people list by name alphabetic with the Comparable implementation
         int maxTabs = 1;
-        for(People s : students) { //this for loop accounts for spacing with differnt length entries
+        for(People s : students) { //this for loop accounts for spacing with different length entries
             if(s.name.length() / 4 > maxTabs)
                 maxTabs = s.name.length() / 4;
         }
@@ -86,7 +86,7 @@ public class Main {
             for(int i = 1; i <= s.gradesQ1.size(); i++) {
                 System.out.print(s.gradesQ1.get(i - 1) + s.gradesQ2.get(i - 1) + "/19" + addTabSpacing(4 - (nf.format(s.gradesQ1.get(i - 1) + s.gradesQ2.get(i - 1)).length() + 3) / 4) + s.gradesQ1.get(i - 1) + "/7" + addTabSpacing(3 - (nf.format(s.gradesQ1.get(i - 1)).length() + 2) / 4) + s.gradesQ2.get(i - 1) + "/12" + addTabSpacing(3 - (nf.format(s.gradesQ2.get(i - 1)).length() + 3) / 4));
                 if (i == 2 && (Math.abs((s.gradesQ1.get(i - 2) + s.gradesQ2.get(i - 2))- (s.gradesQ1.get(i - 1) + s.gradesQ2.get(i - 1))) >=  4)){
-                 System.out.print("  True");
+                 System.out.print("\tTrue");
                 }
             }
             System.out.println("");
