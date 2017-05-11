@@ -78,13 +78,16 @@ public class Main {
         }
         System.out.print("Name" + addTabSpacing(maxTabs) + "Secret Number\tAvg Total \t\tAvg FR Q1 \t\tAvg FR Q2\t ");
         for(int i = 1; i <= maxGraders; i++) {
-            System.out.print("\tScorer" + i + " Total\tScorer" + i + " Q1\tScorer" + i + " Q2");
+            System.out.print("\tScorer " + i + " Total\tScorer " + i + " Q1\tScorer " + i + " Q2");
         }
-        System.out.println("");
+        System.out.println("\t Graders Disagree");
         for(People s : students) {
             System.out.print(s.name + addTabSpacing(maxTabs + 1 - s.name.length() / 4) + s.num + "\t\t\t\t" + nf.format(s.avgGrade()) + "/19" + addTabSpacing(4 - (nf.format(s.avgGrade()).length() + 3) / 4) + "" + nf.format(s.avgQ1()) + "/7" + addTabSpacing(4 - (nf.format(s.avgQ1()).length() + 2) / 4) + "" + nf.format(s.avgQ2()) + "/12" + addTabSpacing(4 - (nf.format(s.avgQ2()).length() + 3) / 4));
             for(int i = 1; i <= s.gradesQ1.size(); i++) {
                 System.out.print(s.gradesQ1.get(i - 1) + s.gradesQ2.get(i - 1) + "/19" + addTabSpacing(4 - (nf.format(s.gradesQ1.get(i - 1) + s.gradesQ2.get(i - 1)).length() + 3) / 4) + s.gradesQ1.get(i - 1) + "/7" + addTabSpacing(3 - (nf.format(s.gradesQ1.get(i - 1)).length() + 2) / 4) + s.gradesQ2.get(i - 1) + "/12" + addTabSpacing(3 - (nf.format(s.gradesQ2.get(i - 1)).length() + 3) / 4));
+                if (i == 2 && (Math.abs((s.gradesQ1.get(i - 2) + s.gradesQ2.get(i - 2))- (s.gradesQ1.get(i - 1) + s.gradesQ2.get(i - 1))) >=  4)){
+                 System.out.print("  True");
+                }
             }
             System.out.println("");
         }
